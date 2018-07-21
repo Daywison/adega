@@ -49,6 +49,7 @@
 </div>
 
 	<?php  $this->load->view($nome_view);	?>
-	
+<link href="<?php echo base_url() ?>assets/css/estilo.css" rel="stylesheet" type="text/css">
+<script src="<?php echo base_url() ?>assets/js/jquery-3.2.1.min.js"></script>	
 </body>
 </html>
