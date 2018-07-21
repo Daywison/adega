@@ -1,0 +1,10 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Produto extends CI_Controller {	
+	public function index()
+	{
+		$dados["nome_view"]="lista-produto";
+		$this->load->view('template' , $dados);
+	}
+}

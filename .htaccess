@@ -1,0 +1,16 @@
+RewriteEngine On
+
+DirectoryIndex index.html index.php index.htm default.htm
+
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+RewriteRule ^.*$ index.php [NC,L]
+
+#JavaScript
+AddType application/x-javascript .js
+# CSS
+AddType text/css .css
+
+php_value max_input_vars 100000
