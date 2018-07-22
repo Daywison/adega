@@ -7,15 +7,12 @@
 				<form action="" method="">
 					<div class="formback">
 						<div class="caixa01">
-							<a href="" class="btn">Adicionar novo produto</a>
+							<a href="<?php echo base_url() ?>produto/novo" class="btn">Adicionar novo produto</a>
 						</div>
-						<div class="caixa02">
-							
+						<div class="caixa02">							
 							<input type="text" name="" placeholder="Pesquisar">
 							<input type="submit" value="ir" class="btn">
-						</div>
-						
-						
+						</div>					
 					</div>
 				</form>
 			</div>
@@ -26,42 +23,24 @@
 					  <tr>
 						<th width="2%" align="left">Id</th>
 						<th width="34%" align="center">Produto</th>
-						<th width="23%" align="center">Estoque</th>
-						<th width="21%" align="center">Ativo</th>
+						<th width="15%" align="center">Estoque</th>
+						<th width="15%" align="center">Preço</th>
+						<th width="3%" align="center">Ativo</th>
 						<th width="20%" align="center">Ação</th>
 					  </tr>
-				  </thead>
+				  </thead>				
 				  <tbody>
+					  <?php foreach ($lista as $produto ) { ?>						  
 					  <tr>
-						<td align="left">1</td>
-						<td align="left">Primeiro Produto</td>
-						<td align="center">101</td>
-						<td align="center"><i class="ativo"></i>sim</td>
-						<td align="center"><a href="" class="btn alterar">ALTERAR</a><a href="" class="btn excluir">excluir</a></td>
+						<td align="left"><?php echo $produto->id_produto ?></td>
+						<td align="left"><?php echo $produto->produto ?></td>
+						<td align="center"><?php echo $produto->estoque_atual ?></td>
+						<td align="center"><?php echo $produto->preco ?></td>
+						<td align="center"><?php echo $produto->ativo_produto ?></td>
+						<td align="center"><a href="<?php echo base_url("produto/editar/{$produto->id_produto}")?>" class="btn alterar">ALTERAR</a>
+											<a href="<?php echo base_url("produto/excluir/{$produto->id_produto}")?>" onclick="return confirmar_exclusao('<?php $produto->produto ?>')"  class="btn excluir">excluir</a></td>
 					  </tr>
-					  <tr>
-						<td align="left">2</td>
-						<td align="left">Primeiro Produto</td>
-						<td align="center">101</td>
-						<td align="center"><i class="ativo"></i>sim</td>
-						<td align="center"><a href="" class="btn alterar">ALTERAR</a><a href="" class="btn excluir">excluir</a></td>
-					  </tr>
-					  
-					  <tr>
-						<td align="left">3</td>
-						<td align="left">Primeiro Produto</td>
-						<td align="center">101</td>
-						<td align="center"><i class="nao-ativo"></i>não</td>
-						<td align="center"><a href="" class="btn alterar">ALTERAR</a><a href="" class="btn excluir">excluir</a></td>
-					  </tr>
-					  
-					  <tr>
-						<td align="left">4</td>
-						<td align="left">Primeiro Produto</td>
-						<td align="center">101</td>
-						<td align="center"><i class="nao-ativo"></i>não</td>
-						<td align="center"><a href="" class="btn alterar">ALTERAR</a><a href="" class="btn excluir">excluir</a></td>
-					  </tr>
+					   <?php } ?>
 				  </tbody>
 				</table>
 			</div>
@@ -79,4 +58,7 @@
 		</div>
 	</div>
 </div>
+<script src="<?php echo base_url() ?>assets/js/js_produto.js" type="text/javascript">
+	
+</script>
 

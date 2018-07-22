@@ -9,13 +9,10 @@
 						<div class="caixa01">
 							<a href="<?php echo base_url() ?>cliente/novo" class="btn">Adicionar novo cliente</a>
 						</div>
-						<div class="caixa02">
-							
+						<div class="caixa02">							
 							<input type="text" name="" placeholder="Pesquisar">
 							<input type="submit" value="ir" class="btn">
-						</div>
-						
-						
+						</div>					
 					</div>
 				</form>
 			</div>
