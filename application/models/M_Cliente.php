@@ -16,6 +16,12 @@ class M_cliente extends CI_Model {
         return $this->db->where("id_cliente", $id)->delete("cliente");
     }
 
+    public function buscaCliente() {
+        $pesq = $this->input->post("pesq");
+        $this->db->like("cliente", $pesq);
+        return $this->db->get('cliente');
+    }
+
     public function salvar() {
         $id_cliente = $this->input->post("id_cliente");
         $valores = array(

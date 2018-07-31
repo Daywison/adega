@@ -4,17 +4,19 @@
 		<div class="base-home">
 			
 			<div class="base-lista">
-				<form action="" method="">
+				
 					<div class="formback">
 						<div class="caixa01">
 							<a href="<?php echo base_url() ?>cliente/novo" class="btn">Adicionar novo cliente</a>
 						</div>
+					<form  method="post">
 						<div class="caixa02">							
-							<input type="text" name="" placeholder="Pesquisar">
-							<input type="submit" value="ir" class="btn">
-						</div>					
+							<input type="text" id="pesq" name="pesq" placeholder="Pesquisar">
+							<input type="button" value="ir" class="btn" onclick='buscaCliente()'>
+						</div>
+					</form>					
 					</div>
-				</form>
+				
 			</div>
 			
 			<div class="base-lista">
@@ -28,7 +30,7 @@
 						<th width="20%" align="center">Ação</th>
 					  </tr>
 				  </thead>
-				  <tbody>	
+				  <tbody id="listaCliente">	
 				  <?php foreach ($lista as $cliente ) { ?>				  
 					  <tr>
 						<td align="left"><?php echo $cliente->id_cliente ?></td>

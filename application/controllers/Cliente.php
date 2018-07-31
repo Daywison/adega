@@ -27,6 +27,12 @@ class Cliente extends CI_Controller {
 		redirect(base_url("cliente"));
 	}
 
+	public function buscaCliente_json() {
+		$this->load->model('M_Cliente');
+		$consulta = $this->M_Cliente->buscaCliente()->result();
+		echo json_encode($consulta);
+	}
+
 	public function novo() {
 		$dados["nome_view"] = "form-cliente";
 		$this->load->view('template', $dados);

@@ -16,13 +16,18 @@ class M_Produto extends CI_Model {
         return $this->db->where("id_produto", $id)->delete("produto");
     }
 
+     public function buscaProduto() {
+        $pesq = $this->input->post("pesq");
+        $this->db->like("produto", $pesq);
+        return $this->db->get('produto');
+    }
+
     public function salvar() {
         $id_produto = $this->input->post("id_produto");
         $valores = array(
             "produto"  => $this->input->post("txt_produto"),
             "estoque_inicial"  => $this->input->post("txt_estoque_inicial"),
-            "estoque_minimo"  => $this->input->post("txt_estoque_minimo"),
-            "estoque_atual"  => $this->input->post("txt_estoque_atual"),
+            "estoque_minimo"  => $this->input->post("txt_estoque_minimo"),            
             "preco"  => $this->input->post("txt_preco"),
             "ativo_produto"  => $this->input->post("txt_ativo_produto")            
         );

@@ -1,9 +1,14 @@
+<?php
+date_default_timezone_set('America/Sao_Paulo');
+?>
+
 <html>
 <head>
 <meta charset="utf-8">
 <title>Controle de estoque - Adega</title>
 <link href="<?php echo base_url() ?>assets/css/reset.css" rel="stylesheet" type="text/css">
 <link href="<?php echo base_url() ?>assets/css/estilo.css" rel="stylesheet" type="text/css">
+<link href="<?php echo base_url() ?>assets/jquery-ui-1.12.1.custom/jquery-ui.min.css" rel="stylesheet" type="text/css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
@@ -36,7 +41,7 @@
 							
 						</ul>
 					</li>
-					<li class="n-arow"><a href="<?php echo base_url()?>vendas"><i class="icone icone04"></i>vendas</a>
+					<li class="n-arow"><a href="<?php echo base_url()?>venda"><i class="icone icone04"></i>vendas</a>
 						
 					</li>
 					<li><a href="<?php echo base_url()?>logoff"><i class="icone icone05"></i>sair</a></li>
@@ -48,8 +53,9 @@
 </div>
 </div>
 
-	<?php  $this->load->view($nome_view);	?>
-<link href="<?php echo base_url() ?>assets/css/estilo.css" rel="stylesheet" type="text/css">
-<script src="<?php echo base_url() ?>assets/js/jquery-3.2.1.min.js"></script>	
+<?php  $this->load->view($nome_view);	?>
+<script> var base_url = '<?php echo base_url() ?>';</script>
+<script src="<?php echo base_url() ?>assets/js/jquery-3.2.1.min.js"></script>
+<script src="<?php echo base_url() ?>assets/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>	
 </body>
 </html>

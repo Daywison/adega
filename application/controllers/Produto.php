@@ -21,6 +21,12 @@ class Produto extends CI_Controller {
 		$this->load->view('template' , $dados);
 	}
 
+	public function buscaProduto_json() {
+		$this->load->model('M_Produto');
+		$consulta = $this->M_Produto->buscaProduto()->result();
+		echo json_encode($consulta);
+	}
+
 	public function excluir($id) {
 		$this->load->model('M_Produto');
 		$this->M_Produto->excluir($id);

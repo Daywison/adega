@@ -24,7 +24,7 @@ $txt_ativo_produto = isset($produto->ativo_produto) ? $produto->ativo_produto : 
 						</div>
 						<div class="separa">	
 							<span>Estoque Inicial</span>						
-							<input type="text"  name="txt_estoque_inicial" value="<?php echo $txt_estoque_inicial ?>" placeholder="Digite a quantidade do estoque inicial">
+							<input type="text"  name="txt_estoque_inicial" <?php echo ($txt_estoque_minimo!="") ? "readonly='true'" : "" ?> value="<?php echo $txt_estoque_inicial ?>" placeholder="Digite a quantidade do estoque inicial">
 						</div>
 						<div class="separa">
 							<span>Estoque Minímo</span>						

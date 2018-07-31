@@ -3,55 +3,31 @@
 	<h1 class="titulo"><span>VENDAS </span></h1>
 		<div class="base-home">
 			<div class="base-form">
-				<h2>FUNIL EM MASSA</h2>
+				<h2>VENDAS</h2>
 				<div class="caixa">
-					<div class="marcacao">
-						<h3>SELECIONE UM CLIENTE</h3>
-						<form action="">
-						
-						<input type="text" placeholder="Digite o nome do cliente">
-						<!--aqui vai mostrar os resultados digitados no campo acima, esta class esta com display:none, então deve ser chamada pelo id no js-->
-						<div id="nomedoid" class="mostratexto">
-							<p>Manoel jailton</p>
-							<p>Manoel jailton</p>
-						</div>
-						<!---->
-						<div class="detalhe-cliente">
-							<p><b>Código:</b> 4</p>
-							<p><b>Nome:</b> Manoel Jailton Nascimento</p>
-							<p><b>Endereço:</b> Rua 49, 30</p>
-							<p><b>Cidade:</b> São luís</p>
-							<p><b>Bairro:</b> 1212</p>
-							<p><b>Email:</b> mjailton@gmail.com</p>
-						</div>
-						</form>
-					</div>
+					
 				</div>
 			<div class="caixa">				
-					<div class="marcacao">
-						<h3>Dados da venda</h3>
-						<span>Cliente</span>
-						<input type="text" placeholder="Digite o nome do cliente">
-					
+					<div class="marcacao">					
 						<div class="separa">
-						<span>Código</span>
-							<input type="text" placeholder="Digite o código">
+						<span>Código da Venda</span>
+							<input type="text" id="id_venda" placeholder="Digite o código">
 						</div>
 						<div class="separa">
 						<span>Hora</span>
-							<input type="text" placeholder="Digite a hora">
+							<input type="text" id="hora_venda" value="<?php echo date("H:i:m")  ?>" placeholder="Digite a hora">
 						</div>
 						
 						<div class="separa">
 						<span>Total</span>
-							<input type="text" placeholder="Digite a data">
+							<input type="text">
 						</div>
 						<div class="separa">
 						<span>Data</span>
-							<input type="text" placeholder="Digite o nome do cliente">
+							<input type="date" id="data_venda" value="<?php echo date("Y-m-d")  ?>">
 						</div>
 						
-						<input type="submit" class="btn" value="Iniciar venda">
+						<input type="button" class="btn" id="btnIniciarVenda" onclick="novaVenda()" value="Iniciar venda">
 					</div>
 				</div>
 				
@@ -59,38 +35,37 @@
 					<div class="marcacao">
 							<h3>Itens da venda</h3>
 							<div class="coluna1">
-								<input type="text" value="" name="" placeholder="Código">
+								<input type="text" value="" id="id_produto" name="" placeholder="Código">
 							</div>
 							<div class="coluna2">
-								<input type="text" value="" name="" placeholder="Produto">
+								<input type="text" value="" name="" id="produto" placeholder="Produto">
 							</div>
 							<div class="coluna3">
-								<input type="text" value="" name="" placeholder="Qtde">
+								<input type="text" value="" id="qtde" name="" placeholder="Quantidade">
 							</div>
 							<div class="coluna3">
-								<input type="submit" class="btn" value="Salvar" name="">
+								<input type="text" value="" id="estoque" readonly="true" name="" placeholder="Estoque">
+							</div>
+							<div class="coluna3">
+								<input type="text" value="" id="preco" readonly="true" name="" placeholder="Preço">
+							</div>
+							<div class="coluna3">
+								<input type="button" class="btn" value="Salvar" onclick="inserirItens()" name="">
 							</div>
 							
 					<div class="base-lista">
 					<table width="100%" border="0" cellspacing="0" cellpadding="0">
 						  <thead>
 							  <tr>
-								<th width="2%" align="left">Id</th>
-								<th width="14%" align="center">Data</th>
+								<th width="2%" align="left">Item</th>															
 								<th width="48%" align="left">Produto</th>
+								<th width="20%" align="left">Preço</th>
 								<th width="16%" align="center">Quantidade</th>
 								<th width="20%" align="center">Excluir</th>
 							  </tr>
 						  </thead>
-						  <tbody>
-							  <tr>
-								<td align="left">1</td>
-								<td align="center">29/09/2016</td>
-								<td align="left">Nome do produto aqui</td>
-								<td align="center">1</td>
-								<td align="center"><a href="" class="btn excluir">excluir</a></td>
-							  </tr>
-							  	  
+						  <tbody id="listaProduto">
+							 
 						  </tbody>
 						</table>
 					</div>
@@ -105,3 +80,8 @@
 		</div>
 	</div>
 </div>
+<script> var base_url = '<?php echo base_url() ?>';</script>
+<script src="<?php echo base_url() ?>assets/js/jquery-3.2.1.min.js"></script>
+<script src="<?php echo base_url() ?>assets/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+<script src="<?php echo base_url() ?>assets/js/js_venda.js" type="text/javascript"></script>
+<script src="<?php echo base_url() ?>assets/js/js_itens.js" type="text/javascript"></script>
