@@ -64,3 +64,36 @@ function novaVenda() {
         }
     })
 }
+
+function finalizarVenda() {
+    id_venda = $("#id_venda").val();
+    data = $("#data_venda").val();
+    hora = $("#hora_venda").val();
+    $.ajax({
+        url: base_url + "venda/novaVenda",
+        type: "post",
+        data: {
+            data_venda: data,
+            hora_venda: hora,
+            id_venda: id_venda
+        },
+        success: function() {
+            window.location.href = base_url + "venda/detalhes/" + id_venda
+        }
+    })
+}
+
+
+function cancelaVenda() {
+    id_venda = $("#id_venda").val();
+    $.ajax({
+        url: base_url + "venda/cancelaVenda",
+        type: "post",
+        data: {
+            id_venda: id_venda
+        },
+        success: function() {
+            alert("tudo limpo");
+        }
+    })
+}

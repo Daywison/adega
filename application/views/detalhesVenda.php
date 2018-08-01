@@ -49,9 +49,7 @@
 							<div class="coluna3">
 								<input type="text" value="" id="preco" readonly="true" name="" placeholder="Preço">
 							</div>
-							<div class="coluna3">
-								<input type="button" class="btn" value="Salvar" onclick="inserirItens()" name="">
-							</div>
+>
 							
 					<div class="base-lista">
 					<table width="100%" border="0" cellspacing="0" cellpadding="0">

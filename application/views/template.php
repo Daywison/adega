@@ -41,8 +41,14 @@ date_default_timezone_set('America/Sao_Paulo');
 							
 						</ul>
 					</li>
-					<li class="n-arow"><a href="<?php echo base_url()?>venda"><i class="icone icone04"></i>vendas</a>
-						
+					<li class="n-arow"><a href="<?php echo base_url()?>venda"><i class="icone icone04"></i>vendas</a></li>
+					<li class="n-arow"><a href=""><i class="icone icone03"></i>Consultas</a>
+						<ul>
+							<li><a href="<?php echo base_url()?>consulta/entrada">Entradas</a></li>
+							<li><a href="<?php echo base_url()?>consulta/saida">Saídas</a></li>
+							<li><a href="<?php echo base_url()?>consulta/movimentacao">movimentações</a></li>
+							<li><a href="<?php echo base_url()?>consulta/venda">vendas</a></li>
+						</ul>
 					</li>
 					<li><a href="<?php echo base_url()?>logoff"><i class="icone icone05"></i>sair</a></li>
 					

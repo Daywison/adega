@@ -25,4 +25,9 @@ class Itens extends CI_Controller {
 		echo json_encode($consulta);
 	}
 
+	public function limparItens() {			
+		$this->load->model("M_Itens");	
+		$this->M_Itens->limparItens();		
+	}
+
 }

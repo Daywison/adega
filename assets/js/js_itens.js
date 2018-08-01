@@ -58,11 +58,13 @@ function inserirItens() {
         },
         success: function(data) {
             $.each(data, function(key) {
+                subtotal = data[key].preco * data[key].qtde;
                 retorno += "<tr>";
                 retorno += "<td align='left'>" + cont++ + "</td>";
                 retorno += "<td align='left'>" + data[key].produto + "</td>";
-                retorno += "<td align='center'>" + data[key].preco + "</td>";
-                retorno += "<td align='center'>" + data[key].qtde + "</td>";
+                retorno += "<td align='right'>" + moeda(parseFloat(data[key].preco)) + "</td>";
+                retorno += "<td align='right'>" + data[key].qtde + "</td>";
+                retorno += "<td align='right'>" + moeda(subtotal) + "</td>";
                 retorno += "<td align='center'><a href='javascript:;' onclick='excluir(" + data[key].id_item + ")' class='btn excluir '>Excluir</a></td>";
                 retorno += "</tr>";
             });
@@ -80,11 +82,13 @@ function listaItens() {
         dataType: "json",
         success: function(data) {
             $.each(data, function(key) {
+                subtotal = data[key].preco * data[key].qtde;
                 retorno += "<tr>";
                 retorno += "<td align='left'>" + cont++ + "</td>";
                 retorno += "<td align='left'>" + data[key].produto + "</td>";
-                retorno += "<td align='center'>" + data[key].preco + "</td>";
-                retorno += "<td align='center'>" + data[key].qtde + "</td>";
+                retorno += "<td align='right'>" + moeda(parseFloat(data[key].preco)) + "</td>";
+                retorno += "<td align='right'>" + data[key].qtde + "</td>";
+                retorno += "<td align='right'>" + moeda(subtotal) + "</td>";
                 retorno += "<td align='center'><a href='javascript:;' onclick='excluir(" + data[key].id_item + ")' class='btn excluir '>Excluir</a></td>";
                 retorno += "</tr>";
             });
@@ -107,15 +111,32 @@ function excluir(id) {
         },
         success: function(data) {
             $.each(data, function(key) {
+                subtotal = data[key].preco * data[key].qtde;
                 retorno += "<tr>";
                 retorno += "<td align='left'>" + cont++ + "</td>";
                 retorno += "<td align='left'>" + data[key].produto + "</td>";
-                retorno += "<td align='center'>" + data[key].preco + "</td>";
-                retorno += "<td align='center'>" + data[key].qtde + "</td>";
+                retorno += "<td align='right'>" + moeda(parseFloat(data[key].preco)) + "</td>";
+                retorno += "<td align='right'>" + data[key].qtde + "</td>";
+                retorno += "<td align='right'>" + moeda(subtotal) + "</td>";
                 retorno += "<td align='center'><a href='javascript:;' onclick='excluir(" + data[key].id_item + ")' class='btn excluir '>Excluir</a></td>";
                 retorno += "</tr>";
             });
             $('#listaProduto').html(retorno);
+        }
+    });
+}
+
+function moeda(valor) {
+    return "R$ " + valor.toFixed(2).replace(".", ",");
+}
+
+function limparItens() {
+    $.ajax({
+        url: base_url + "itens/limparItens",
+        type: "post",
+        data: { id_venda: $("#id_venda").val() },
+        success: function() {
+            $('#listaProduto').html("");
         }
     });
 }

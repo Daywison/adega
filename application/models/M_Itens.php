@@ -31,6 +31,11 @@ class M_Itens extends CI_Model {
         $this->db->where("id_item", $id)->delete("itens");
     }  
 
+    public function limparItens(){
+        $id = $this->input->post("id_venda");
+        $this->db->where("id_venda", $id)->delete("itens");
+    }
+
 }
 
 

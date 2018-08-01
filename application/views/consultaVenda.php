@@ -23,32 +23,20 @@
 					  <tr>
 						<th width="2%" align="left">Id</th>
 						<th width="34%" align="center">Data</th>
-						<th width="23%" align="center">Produto</th>
-						<th width="21%" align="center">Quantidade</th>
+						<th width="23%" align="center">TOTAL</th>
+						<th width="21%" align="center">TOTAL</th>
 					  </tr>
 				  </thead>
 				  <tbody>
-					  <tr>
-						<td align="left">1</td>
-						<td align="center">2016-09-26</td>
-						<td align="center">Mais um produto para teste</td>
-						<td align="center">15</td>
-						
-					  </tr>
-					  <tr>
-						<td align="left">1</td>
-						<td align="center">2016-09-26</td>
-						<td align="center">Mais um produto para teste</td>
-						<td align="center">15</td>
-						
-					  </tr>
-					  <tr>
-						<td align="left">1</td>
-						<td align="center">2016-09-26</td>
-						<td align="center">Mais um produto para teste</td>
-						<td align="center">15</td>
-						
-					  </tr>
+						<?php 
+							foreach ($lista as $linha) { ?>
+							<tr>
+									<td align="left"><?php echo $linha->id_venda ?></td>
+									<td align="center"><?php echo $linha->data_venda ?></td>
+									<td align="center">TOTAL</td>
+									<td align="center">TOTAL</td>						
+							</tr>					 
+						<?php } ?>
 				  </tbody>
 				</table>
 			</div>
